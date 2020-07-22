@@ -1,9 +1,9 @@
 package com.example.myapplication
 
-class ModelClass( type:Int , listT:Int){
+class ModelClass( type:Int ){
 
     val itemType = type
-    val listType = listT
+
 
 
     //Header layout

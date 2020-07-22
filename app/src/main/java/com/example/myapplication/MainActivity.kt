@@ -19,12 +19,12 @@ class MainActivity : AppCompatActivity() {
 
         val models = ArrayList<ModelClass>()
 
-        models.add(ModelClass(0,0))
-        models.add(ModelClass(2,0))
-        models.add(ModelClass(2,1))
-        models.add(ModelClass(1,0))
-        models.add(ModelClass(2,2))
-        models.add(ModelClass(2,3))
+        models.add(ModelClass(0))
+        models.add(ModelClass(2))
+        models.add(ModelClass(3))
+        models.add(ModelClass(1))
+        models.add(ModelClass(4))
+        models.add(ModelClass(5))
 
         recyclerView.adapter = MainAdapter(models)
 

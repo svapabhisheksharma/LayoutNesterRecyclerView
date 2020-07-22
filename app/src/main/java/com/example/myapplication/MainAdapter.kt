@@ -14,15 +14,10 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
         when(modelList[position].itemType){
             0->return 0
             1->return 1
-            2->{
-                when(modelList[position].listType){
-                    0->return 2
-                    1->return 3
-                    2->return 4
-                    3->return 5
-                    else->return -1
-                }
-            }
+            2->return 2
+            3->return 3
+            4->return 4
+            5->return 5
             else->return -1
         }
     }
@@ -59,7 +54,6 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
                 return PopularLayout(elseLayout)
             }
         }
-
     }
 
     override fun getItemCount(): Int {
@@ -78,25 +72,20 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
                 viewHolder.setPopularData(modelList[position].getPopular())
             }
             2->{
-                when(modelList[position].listType){
-                    0->{
                         val viewholder = holder as RVhorizLayout
                         viewholder.setRVdata("",modelList[position].getList())
-                    }
-                    1->{
-                        val viewholder = holder as RVvertLayout
-                        viewholder.setRVdata("",modelList[position].getList())
-                    }
-                    2->{
-                        val viewholder = holder as RVvertLayout
-                        viewholder.setRVdata("Home-Cooks",modelList[position].getList())
-                    }
-                    3->{
-                        val viewholder = holder as RVgridLayout
-                        viewholder.setRVdata("Top Picks For You",modelList[position].getList())
-                    }
-                    else->return
-                }
+            }
+            3->{
+                val viewholder = holder as RVvertLayout
+                viewholder.setRVdata("",modelList[position].getList())
+            }
+            4->{
+                val viewholder = holder as RVvertLayout
+                viewholder.setRVdata("Home-Cooks",modelList[position].getList())
+            }
+            5->{
+                val viewholder = holder as RVgridLayout
+                viewholder.setRVdata("Top Picks For You",modelList[position].getList())
             }
             else->return
         }
