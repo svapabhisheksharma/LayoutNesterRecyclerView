@@ -1,9 +1,32 @@
 package com.example.myapplication
 
-class ModelClass( type:Int ){
+class ModelClass{
 
-    val itemType = type
+    constructor(itemType:Int)
+    {
+        this.itemType=itemType
+    }
 
+    var itemType:Int = 0
+
+    constructor(itemType: Int,list2:List<list2Model>)
+    {
+        this.itemType=itemType
+        this.list2 = list2
+    }
+    private lateinit var list2:List<list2Model>
+    constructor(itemType: Int,list4:List<list4Model>,randomint:Int)
+    {
+        this.itemType=itemType
+        this.list4 = list4
+    }
+    private lateinit var list4 : List<list4Model>
+    fun getlist2():List<list2Model>{
+        return this.list2
+    }
+    fun getlist4():List<list4Model>{
+        return this.list4
+    }
 
 
     //Header layout
@@ -28,11 +51,10 @@ class ModelClass( type:Int ){
     }
 
 
-    //Nested RecyclerView layout
-    private val list : List<String> = listOf("Hello","Hello","Hello","Hello","Hello","Hello","Hello","Hello","Hello","Hello")
-    fun getList():List<String> {
-        return this.list
-    }
+
+
+
+
 
 
 

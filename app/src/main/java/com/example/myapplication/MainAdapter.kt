@@ -35,19 +35,19 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
             }
             2->{
                 var rvhorizLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout,parent,false)
-                return RVhorizLayout(rvhorizLayout)
+                return RVlist1layout(rvhorizLayout)
             }
             3->{
                 var rvvertLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout,parent,false)
-                return RVvertLayout(rvvertLayout)
+                return RVlist2layout(rvvertLayout)
             }
             4->{
                 var rvhomecooksLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout,parent,false)
-                return RVvertLayout(rvhomecooksLayout)
+                return RVlist3layout(rvhomecooksLayout)
             }
             5->{
                 var rvtoppicksLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout,parent,false)
-                return RVgridLayout(rvtoppicksLayout)
+                return RVlist4layout(rvtoppicksLayout)
             }
             else->{
                 var elseLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.popular_layout,parent,false)
@@ -72,20 +72,20 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
                 viewHolder.setPopularData(modelList[position].getPopular())
             }
             2->{
-                        val viewholder = holder as RVhorizLayout
-                        viewholder.setRVdata("",modelList[position].getList())
+                        val viewholder = holder as RVlist1layout
+                        viewholder.setRVdata("",8)
             }
             3->{
-                val viewholder = holder as RVvertLayout
-                viewholder.setRVdata("",modelList[position].getList())
+                val viewholder = holder as RVlist2layout
+                viewholder.setRVdata("",modelList[position].getlist2())
             }
             4->{
-                val viewholder = holder as RVvertLayout
-                viewholder.setRVdata("Home-Cooks",modelList[position].getList())
+                val viewholder = holder as RVlist3layout
+                viewholder.setRVdata("Home-Cooks",8)
             }
             5->{
-                val viewholder = holder as RVgridLayout
-                viewholder.setRVdata("Top Picks For You",modelList[position].getList())
+                val viewholder = holder as RVlist4layout
+                viewholder.setRVdata("Top Picks For You",modelList[position].getlist4())
             }
             else->return
         }
@@ -112,63 +112,80 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
         }
 
     }
-    class RVhorizLayout(itemView:View):RecyclerView.ViewHolder(itemView){
+    class RVlist1layout(itemView:View):RecyclerView.ViewHolder(itemView){
 
         private val textviewTitle = itemView.findViewById(R.id.rvtitle) as TextView
         private val rvHorizontal = itemView.findViewById(R.id.rv) as RecyclerView
 
-        fun setRVdata(title:String,list:List<String>){
+        fun setRVdata(title:String,listSize:Int){
             textviewTitle.text=title
 
             val rvLayoutManager =LinearLayoutManager(rvHorizontal.context,LinearLayoutManager.HORIZONTAL,false)
 
-            rvLayoutManager.initialPrefetchItemCount=4
 
             rvHorizontal.apply {
                 layoutManager=rvLayoutManager
-                adapter=innerRecyclerViewAdapterHorizontal(list)
+                adapter=innerList1Adapter(listSize)
             }
 
 
         }
 
     }
-    class RVvertLayout(itemView:View):RecyclerView.ViewHolder(itemView){
+    class RVlist2layout(itemView:View):RecyclerView.ViewHolder(itemView){
 
         private val textviewTitle = itemView.findViewById(R.id.rvtitle) as TextView
         private val rvVert = itemView.findViewById(R.id.rv) as RecyclerView
 
-        fun setRVdata(title:String,list:List<String>){
+        fun setRVdata(title:String,list:List<list2Model>){
             textviewTitle.text=title
 
             val rvLayoutManager =LinearLayoutManager(rvVert.context,LinearLayoutManager.HORIZONTAL,false)
 
-            rvLayoutManager.initialPrefetchItemCount=4
 
             rvVert.apply {
                 layoutManager=rvLayoutManager
-                adapter=innerRecyclerViewAdapterVertical(list)
+                adapter=innerList2Adapter(list)
             }
 
 
         }
 
     }
-    class RVgridLayout(itemView:View):RecyclerView.ViewHolder(itemView){
+    class RVlist3layout(itemView:View):RecyclerView.ViewHolder(itemView){
+
+        private val textviewTitle = itemView.findViewById(R.id.rvtitle) as TextView
+        private val rvVert = itemView.findViewById(R.id.rv) as RecyclerView
+
+        fun setRVdata(title:String,listSize:Int){
+            textviewTitle.text=title
+
+            val rvLayoutManager =LinearLayoutManager(rvVert.context,LinearLayoutManager.HORIZONTAL,false)
+
+
+            rvVert.apply {
+                layoutManager=rvLayoutManager
+                adapter=innerList3Adapter(listSize)
+            }
+
+
+        }
+
+    }
+    class RVlist4layout(itemView:View):RecyclerView.ViewHolder(itemView){
 
         private val textviewTitle = itemView.findViewById(R.id.rvtitle) as TextView
         private val rvgrid = itemView.findViewById(R.id.rv) as RecyclerView
 
-        fun setRVdata(title:String,list:List<String>){
+        fun setRVdata(title:String,list:List<list4Model>){
             textviewTitle.text=title
 
             val rvLayoutManager =GridLayoutManager(rvgrid.context,2)
 
-            rvLayoutManager.initialPrefetchItemCount=4
 
             rvgrid.apply {
                 layoutManager=rvLayoutManager
-                adapter=innerRecyclerViewAdapterVertical(list)
+                adapter=innerList4Adapter(list)
             }
 
 

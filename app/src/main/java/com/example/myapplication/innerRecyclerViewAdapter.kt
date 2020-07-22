@@ -3,36 +3,35 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class innerRecyclerViewAdapterHorizontal(val list:List<String>) : RecyclerView.Adapter<innerRecyclerViewAdapterHorizontal.ViewHolder>(){
+class innerList1Adapter(private val listSize:Int) : RecyclerView.Adapter<innerList1Adapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v =LayoutInflater.from(parent.context).inflate(R.layout.card_horizontal,parent,false)
+        val v =LayoutInflater.from(parent.context).inflate(R.layout.list1_layout,parent,false)
         return ViewHolder(v)
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return listSize
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(list[position])
+        holder.bindItems()
     }
 
 
     class ViewHolder (itemView:View):RecyclerView.ViewHolder(itemView){
-        fun bindItems(name:String){
-            val title = itemView.findViewById(R.id.horizontalTitle) as TextView
-            title.text = name
+        fun bindItems(){
         }
     }
 
 }
 
-class innerRecyclerViewAdapterVertical(val list:List<String>) : RecyclerView.Adapter<innerRecyclerViewAdapterVertical.ViewHolder>(){
+class innerList2Adapter(private val list:List<list2Model>) : RecyclerView.Adapter<innerList2Adapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v =LayoutInflater.from(parent.context).inflate(R.layout.card_vertical,parent,false)
+        val v =LayoutInflater.from(parent.context).inflate(R.layout.list2_layout,parent,false)
         return ViewHolder(v)
     }
 
@@ -41,14 +40,63 @@ class innerRecyclerViewAdapterVertical(val list:List<String>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(list[position])
+        holder.bindItems(list[position].heading,list[position].imageResource)
     }
 
 
     class ViewHolder (itemView:View):RecyclerView.ViewHolder(itemView){
-        fun bindItems(name:String){
-            val title = itemView.findViewById(R.id.titleVertical) as TextView
+        private val title = itemView.findViewById(R.id.list2_heading) as TextView
+        private val image = itemView.findViewById(R.id.list2_image) as ImageView
+
+        fun bindItems(name:String,imageResource:Int){
             title.text = name
+            image.setImageResource(imageResource)
+        }
+    }
+
+}
+
+class innerList3Adapter(private val listSize:Int) : RecyclerView.Adapter<innerList3Adapter.ViewHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v =LayoutInflater.from(parent.context).inflate(R.layout.list3_layout,parent,false)
+        return ViewHolder(v)
+    }
+
+    override fun getItemCount(): Int {
+        return listSize
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bindItems()
+    }
+
+
+    class ViewHolder (itemView:View):RecyclerView.ViewHolder(itemView){
+        fun bindItems(){
+        }
+    }
+
+}
+
+class innerList4Adapter(private val list:List<list4Model>) : RecyclerView.Adapter<innerList4Adapter.ViewHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v =LayoutInflater.from(parent.context).inflate(R.layout.list4_layout,parent,false)
+        return ViewHolder(v)
+    }
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bindItems(list[position].imageResource)
+    }
+
+
+    class ViewHolder (itemView:View):RecyclerView.ViewHolder(itemView){
+        private val image = itemView.findViewById(R.id.imageView5) as ImageView
+        fun bindItems(imageResource:Int){
+            image.setImageResource(imageResource)
         }
     }
 
