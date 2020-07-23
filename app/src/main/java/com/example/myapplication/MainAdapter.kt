@@ -34,11 +34,11 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
                 return PopularLayout(popularLayout)
             }
             2->{
-                var rvhorizLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout,parent,false)
+                var rvhorizLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout1,parent,false)
                 return RVlist1layout(rvhorizLayout)
             }
             3->{
-                var rvvertLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout,parent,false)
+                var rvvertLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout1,parent,false)
                 return RVlist2layout(rvvertLayout)
             }
             4->{
@@ -73,11 +73,11 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
             }
             2->{
                         val viewholder = holder as RVlist1layout
-                        viewholder.setRVdata("",8)
+                        viewholder.setRVdata(8)
             }
             3->{
                 val viewholder = holder as RVlist2layout
-                viewholder.setRVdata("",modelList[position].getlist2())
+                viewholder.setRVdata(modelList[position].getlist2())
             }
             4->{
                 val viewholder = holder as RVlist3layout
@@ -114,11 +114,9 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
     }
     class RVlist1layout(itemView:View):RecyclerView.ViewHolder(itemView){
 
-        private val textviewTitle = itemView.findViewById(R.id.rvtitle) as TextView
-        private val rvHorizontal = itemView.findViewById(R.id.rv) as RecyclerView
+        private val rvHorizontal = itemView.findViewById(R.id.recyclerView1) as RecyclerView
 
-        fun setRVdata(title:String,listSize:Int){
-            textviewTitle.text=title
+        fun setRVdata(listSize:Int){
 
             val rvLayoutManager =LinearLayoutManager(rvHorizontal.context,LinearLayoutManager.HORIZONTAL,false)
 
@@ -134,11 +132,9 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
     }
     class RVlist2layout(itemView:View):RecyclerView.ViewHolder(itemView){
 
-        private val textviewTitle = itemView.findViewById(R.id.rvtitle) as TextView
-        private val rvVert = itemView.findViewById(R.id.rv) as RecyclerView
+        private val rvVert = itemView.findViewById(R.id.recyclerView1) as RecyclerView
 
-        fun setRVdata(title:String,list:List<list2Model>){
-            textviewTitle.text=title
+        fun setRVdata(list:List<list2Model>){
 
             val rvLayoutManager =LinearLayoutManager(rvVert.context,LinearLayoutManager.HORIZONTAL,false)
 

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="20dp"
     android:layout_height="110dp"
     android:background="#bd6f29  "
     android:orientation="vertical">
@@ -85,8 +84,6 @@
             android:textColor="#ffffff"
             android:textSize="14sp" />
     </androidx.cardview.widget.CardView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

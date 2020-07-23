@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.solver.widgets.ConstraintWidget.GONE
 import androidx.recyclerview.widget.RecyclerView
 
 class innerList1Adapter(private val listSize:Int) : RecyclerView.Adapter<innerList1Adapter.ViewHolder>(){
@@ -23,7 +24,9 @@ class innerList1Adapter(private val listSize:Int) : RecyclerView.Adapter<innerLi
 
 
     class ViewHolder (itemView:View):RecyclerView.ViewHolder(itemView){
+       // private val textView = itemView.findViewById(R.id.rvtitle) as TextView
         fun bindItems(){
+            //textView.visibility = View.GONE
         }
     }
 
@@ -72,7 +75,9 @@ class innerList3Adapter(private val listSize:Int) : RecyclerView.Adapter<innerLi
 
 
     class ViewHolder (itemView:View):RecyclerView.ViewHolder(itemView){
+       // private val textView = itemView.findViewById(R.id.rvtitle) as TextView
         fun bindItems(){
+            //textView.visibility = View.GONE
         }
     }
 
