@@ -191,12 +191,14 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
         fun setRVdata(title:String,list:List<list4Model>){
             textviewTitle.text=title
 
+
             val rvLayoutManager =GridLayoutManager(rvgrid.context,2)
 
 
             rvgrid.apply {
                 layoutManager=rvLayoutManager
                 adapter=innerList4Adapter(list)
+                addItemDecoration(GridDecoration(2,Math.round(12*resources.displayMetrics.density),true))
             }
 
 
