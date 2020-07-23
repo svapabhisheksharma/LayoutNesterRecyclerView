@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         models.add(ModelClass(1))
         models.add(ModelClass(4))
         models.add(ModelClass(5,list4_model,1))
+        models.add(ModelClass(6))
 
 
         recyclerView.adapter = MainAdapter(models)

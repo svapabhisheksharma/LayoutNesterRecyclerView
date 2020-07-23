@@ -18,6 +18,7 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
             3->return 3
             4->return 4
             5->return 5
+            6->return 6
             else->return -1
         }
     }
@@ -48,6 +49,10 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
             5->{
                 var rvtoppicksLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.parent_recyclerview_layout,parent,false)
                 return RVlist4layout(rvtoppicksLayout)
+            }
+            6->{
+                var isloatedLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.isolated_card,parent,false)
+                return IsolatedCardLayout(isloatedLayout)
             }
             else->{
                 var elseLayout :View = LayoutInflater.from(parent.context).inflate(R.layout.popular_layout,parent,false)
@@ -87,11 +92,21 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
                 val viewholder = holder as RVlist4layout
                 viewholder.setRVdata("Top Picks For You",modelList[position].getlist4())
             }
+            6->{
+                val viewholder = holder as IsolatedCardLayout
+                viewholder.bindItems()
+            }
             else->return
         }
 
     }
 
+    class IsolatedCardLayout(itemView:View):RecyclerView.ViewHolder(itemView){
+        fun bindItems(){
+
+        }
+
+    }
     class HeaderLayout(itemView:View):RecyclerView.ViewHolder(itemView){
 
         private val textViewCity = itemView.findViewById(R.id.city_name) as TextView
