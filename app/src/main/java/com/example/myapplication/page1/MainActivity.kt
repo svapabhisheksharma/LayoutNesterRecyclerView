@@ -1,10 +1,10 @@
-package com.example.myapplication
+package com.example.myapplication.page1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Display
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,14 +15,54 @@ class MainActivity : AppCompatActivity() {
 
         val list2_model =ArrayList<list2Model>()
 
-        list2_model.add(list2Model(R.drawable.mask_group_1,"Food Trays"))
-        list2_model.add(list2Model(R.drawable.group_2,"International Cuisine"))
-        list2_model.add(list2Model(R.drawable.mask_group_1,"Food Trays"))
-        list2_model.add(list2Model(R.drawable.group_2,"International Cuisine"))
-        list2_model.add(list2Model(R.drawable.mask_group_1,"Food Trays"))
-        list2_model.add(list2Model(R.drawable.group_2,"International Cuisine"))
-        list2_model.add(list2Model(R.drawable.mask_group_1,"Food Trays"))
-        list2_model.add(list2Model(R.drawable.group_2,"International Cuisine"))
+        list2_model.add(
+            list2Model(
+                R.drawable.mask_group_1,
+                "Food Trays"
+            )
+        )
+        list2_model.add(
+            list2Model(
+                R.drawable.group_2,
+                "International Cuisine"
+            )
+        )
+        list2_model.add(
+            list2Model(
+                R.drawable.mask_group_1,
+                "Food Trays"
+            )
+        )
+        list2_model.add(
+            list2Model(
+                R.drawable.group_2,
+                "International Cuisine"
+            )
+        )
+        list2_model.add(
+            list2Model(
+                R.drawable.mask_group_1,
+                "Food Trays"
+            )
+        )
+        list2_model.add(
+            list2Model(
+                R.drawable.group_2,
+                "International Cuisine"
+            )
+        )
+        list2_model.add(
+            list2Model(
+                R.drawable.mask_group_1,
+                "Food Trays"
+            )
+        )
+        list2_model.add(
+            list2Model(
+                R.drawable.group_2,
+                "International Cuisine"
+            )
+        )
 
         val list4_model =ArrayList<list4Model>()
 
@@ -44,10 +84,10 @@ class MainActivity : AppCompatActivity() {
         val models = ArrayList<ModelClass>()
         models.add(ModelClass(0))
         models.add(ModelClass(2))
-        models.add(ModelClass(3,list2_model))
+        models.add(ModelClass(3, list2_model))
         models.add(ModelClass(1))
         models.add(ModelClass(4))
-        models.add(ModelClass(5,list4_model,1))
+        models.add(ModelClass(5, list4_model, 1))
         models.add(ModelClass(6))
 
 

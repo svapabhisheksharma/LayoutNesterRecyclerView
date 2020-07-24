@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.page1
 
 class ModelClass{
 
@@ -15,7 +15,7 @@ class ModelClass{
         this.list2 = list2
     }
     private lateinit var list2:List<list2Model>
-    constructor(itemType: Int,list4:List<list4Model>,randomint:Int)
+    constructor(itemType: Int, list4:List<list4Model>, randomint:Int)
     {
         this.itemType=itemType
         this.list4 = list4

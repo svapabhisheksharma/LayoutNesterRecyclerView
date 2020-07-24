@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.page1
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
+import kotlin.math.roundToInt
 
 class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -138,7 +140,7 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
 
             rvHorizontal.apply {
                 layoutManager=rvLayoutManager
-                adapter=innerList1Adapter(listSize)
+                adapter= innerList1Adapter(listSize)
             }
 
 
@@ -156,7 +158,7 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
 
             rvVert.apply {
                 layoutManager=rvLayoutManager
-                adapter=innerList2Adapter(list)
+                adapter= innerList2Adapter(list)
             }
 
 
@@ -176,7 +178,7 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
 
             rvVert.apply {
                 layoutManager=rvLayoutManager
-                adapter=innerList3Adapter(listSize)
+                adapter= innerList3Adapter(listSize)
             }
 
 
@@ -197,8 +199,14 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
 
             rvgrid.apply {
                 layoutManager=rvLayoutManager
-                adapter=innerList4Adapter(list)
-                addItemDecoration(GridDecoration(2,Math.round(12*resources.displayMetrics.density),true))
+                adapter= innerList4Adapter(list)
+                addItemDecoration(
+                    GridDecoration(
+                        2,
+                        (12 * resources.displayMetrics.density).roundToInt(),
+                        true
+                    )
+                )
             }
 
 
