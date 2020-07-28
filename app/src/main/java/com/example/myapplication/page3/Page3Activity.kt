@@ -1,18 +1,18 @@
-package com.example.myapplication.page2
+package com.example.myapplication.page3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.RecoverySystem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.page1.ModelClass
 import com.example.myapplication.page1.list4Model
 
-class Page2Activity : AppCompatActivity() {
+class Page3Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_page2)
+        setContentView(R.layout.activity_page3)
         var list4Model = ArrayList<list4Model>()
         list4Model.add(list4Model(R.drawable.no_path_copy))
         list4Model.add(list4Model(R.drawable.no_path_copy_3))
@@ -21,17 +21,16 @@ class Page2Activity : AppCompatActivity() {
         list4Model.add(list4Model(R.drawable.no_path_copy_6))
         list4Model.add(list4Model(R.drawable.no_path_copy_5))
 
+        val rvpage3 = findViewById<RecyclerView>(R.id.page3rv)
+        rvpage3.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerviewpage2main)
+        var modelList = ArrayList<Model3>()
 
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        modelList.add(Model3(0))
+        modelList.add(Model3(1))
+        modelList.add(Model3(2,list4Model))
+        modelList.add(Model3(3,3))
 
-        var modelpage2 = ArrayList<ModelPage2>()
-
-        modelpage2.add(ModelPage2(0))
-        modelpage2.add(ModelPage2(1,list4Model))
-
-        recyclerView.adapter= MainPage2Adapter(modelpage2)
-
+        rvpage3.adapter = AdapterPage3(modelList)
     }
 }
