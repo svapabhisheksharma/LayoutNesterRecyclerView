@@ -1,5 +1,6 @@
 package com.example.myapplication.page1
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.page2.Page2Activity
 
 class innerList1Adapter(private val listSize:Int) : RecyclerView.Adapter<innerList1Adapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,10 +34,18 @@ class innerList1Adapter(private val listSize:Int) : RecyclerView.Adapter<innerLi
 
 }
 
-class innerList2Adapter(private val list:List<list2Model>) : RecyclerView.Adapter<innerList2Adapter.ViewHolder>(){
+class innerList2Adapter(private val list:List<list2Model>,val itemClickHandler: (Int) -> Unit) : RecyclerView.Adapter<innerList2Adapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v =LayoutInflater.from(parent.context).inflate(R.layout.list2_layout,parent,false)
-        return ViewHolder(v)
+
+        val holder = ViewHolder(v)
+
+        v.setOnClickListener {
+            itemClickHandler.invoke(holder.adapterPosition)
+        }
+
+        return holder
+
     }
 
     override fun getItemCount(): Int {
@@ -54,10 +64,10 @@ class innerList2Adapter(private val list:List<list2Model>) : RecyclerView.Adapte
         fun bindItems(name:String,imageResource:Int){
             title.text = name
             image.setImageResource(imageResource)
+
+            }
         }
     }
-
-}
 
 class innerList3Adapter(private val listSize:Int) : RecyclerView.Adapter<innerList3Adapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

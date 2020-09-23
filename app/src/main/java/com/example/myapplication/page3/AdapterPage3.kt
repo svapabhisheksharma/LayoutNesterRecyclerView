@@ -93,7 +93,7 @@ class AdapterPage3 (var modelList:List<Model3>):RecyclerView.Adapter<RecyclerVie
                 addItemDecoration(
                     GridDecoration(
                         2,
-                        (12 * resources.displayMetrics.density).roundToInt(),
+                        (10 * resources.displayMetrics.density).roundToInt(),
                         true
                     )
                 )

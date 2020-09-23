@@ -1,10 +1,13 @@
 package com.example.myapplication.page1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.page2.Page2Activity
 
 class MainActivity : AppCompatActivity() {
 
@@ -91,8 +94,15 @@ class MainActivity : AppCompatActivity() {
         models.add(ModelClass(6))
 
 
-        recyclerView.adapter = MainAdapter(models)
 
+        recyclerView.adapter = MainAdapter(models,this::itemClickHandler)
+
+
+    }
+
+    private fun itemClickHandler(position: Int) {
+
+        startActivity(Intent(this@MainActivity,Page2Activity::class.java))
 
     }
 }

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import kotlin.math.roundToInt
 
-class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MainAdapter(private val modelList:List<ModelClass>,val itemClickHandler: (Int) -> Unit):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
         when(modelList[position].itemType){
@@ -84,7 +84,7 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
             }
             3->{
                 val viewholder = holder as RVlist2layout
-                viewholder.setRVdata(modelList[position].getlist2())
+                viewholder.setRVdata(modelList[position].getlist2(),itemClickHandler)
             }
             4->{
                 val viewholder = holder as RVlist3layout
@@ -151,14 +151,14 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
 
         private val rvVert = itemView.findViewById(R.id.recyclerView1) as RecyclerView
 
-        fun setRVdata(list:List<list2Model>){
+        fun setRVdata(list:List<list2Model>,itemClickHandler: (Int) -> Unit){
 
             val rvLayoutManager =LinearLayoutManager(rvVert.context,LinearLayoutManager.HORIZONTAL,false)
 
 
             rvVert.apply {
                 layoutManager=rvLayoutManager
-                adapter= innerList2Adapter(list)
+                adapter= innerList2Adapter(list,itemClickHandler)
             }
 
 
@@ -203,7 +203,7 @@ class MainAdapter(private val modelList:List<ModelClass>):RecyclerView.Adapter<R
                 addItemDecoration(
                     GridDecoration(
                         2,
-                        (12 * resources.displayMetrics.density).roundToInt(),
+                        (10 * resources.displayMetrics.density).roundToInt(),
                         true
                     )
                 )
